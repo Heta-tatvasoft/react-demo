@@ -1,0 +1,10 @@
+$form-control-padding: 16px;
+
+.form-wrapper {
+  margin: 20px;
+  .form-control {
+    padding: $form-control-padding;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+  }
+}
