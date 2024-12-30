@@ -1,18 +1,21 @@
+import Checkbox from '@mui/material/Checkbox';
 import './App.scss';
 import TextField from '@mui/material/TextField';
+import { Typography } from '@mui/material';
 
 function App() {
   return (
     <div className="basic-form">
-        <h1>Basic Form</h1>
-        <div className="form-wrapper">
-          <div className="form-group">
+      <Checkbox defaultChecked />
+      <Typography variant="h1">Typograhy H1</Typography>
+      <div className="form-wrapper">
+        <div className="form-group">
           {/* input code start */}
-            <label htmlFor="input">input</label>
-            <TextField id="input" variant="outlined" className="form-control" />
+          <label htmlFor="input">input</label>
+          <TextField id="input" variant="outlined" className="form-control" />
           {/* input code end */}
-          </div>
         </div>
+      </div>
     </div>
   );
 }
