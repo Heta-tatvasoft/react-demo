@@ -1,23 +1,16 @@
-html{
-  font-size: 62.5%;
-}
+@import 'assets/css/style.scss';
+
+
 *{
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-.basic-form{
-  padding: 2rem;
-}
-.basic-form h1{
-  font-size: 5rem;
-  margin-bottom: 1rem;
-}
-/* input design start */
-.form-group label{
-  display: block;
-  text-transform: capitalize;
-  margin-bottom: 1rem;
+.container{
+  margin: 0 auto;
+  padding:0 50px;
+  max-width: 1440px;
+  width: 100%;
 }
 
 /* input design start end*/

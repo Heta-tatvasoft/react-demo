@@ -1,20 +1,23 @@
-import Checkbox from '@mui/material/Checkbox';
+import { Typography, Button, FormControl, Input, InputLabel, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import './App.scss';
-import TextField from '@mui/material/TextField';
-import { Typography } from '@mui/material';
 
 function App() {
   return (
-    <div className="basic-form">
-      <Checkbox defaultChecked />
-      <Typography variant="h1">Typograhy H1</Typography>
-      <div className="form-wrapper">
-        <div className="form-group">
-          {/* input code start */}
-          <label htmlFor="input">input</label>
-          <TextField id="input" variant="outlined" className="form-control" />
-          {/* input code end */}
-        </div>
+    <div className="App">
+      <div className="container">
+        <Typography variant="h1" sx = {{fontSize: 34}} color="heta">React Demo</Typography>
+        <Button variant="text" color="ochre">Text</Button>
+        <Button variant="contained" size="small" sx = {{margin: (theme) => `${theme.spacing(4)} auto`, backgroundColor: { xs: "white", md: "green", lg: "blue" }, }}>Text</Button>
+        <Button className="custom-btn" variant="outlined" size="large">Text</Button>
+        <FormControl>
+          <InputLabel htmlFor="my-input">Email address</InputLabel>
+          <Input id="my-input" aria-describedby="my-helper-text" />
+        </FormControl>
+        <FormGroup>
+          <FormControlLabel control={<Checkbox defaultChecked />} label="Label" />
+          <FormControlLabel required control={<Checkbox />} label="Required" />
+          <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
+        </FormGroup>
       </div>
     </div>
   );
