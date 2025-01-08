@@ -1,10 +1,18 @@
 import { Typography, Button, FormControl, Input, InputLabel, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import './App.scss';
+import SnackBarComponent from './components/SnackBarComponent';
+
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
-      <div className="container">
+      <Router>
+        <Routes>
+          <Route path='/snackbar' element={<SnackBarComponent />} />
+        </Routes>
+      </Router>
+      {/* <div className="container">
         <Typography variant="h1" sx = {{fontSize: 34}} color="heta">React Demo</Typography>
         <Button variant="text" color="ochre">Text</Button>
         <Button variant="contained" size="small" sx = {{margin: (theme) => `${theme.spacing(4)} auto`, backgroundColor: { xs: "white", md: "green", lg: "blue" }, }}>Text</Button>
@@ -18,7 +26,7 @@ function App() {
           <FormControlLabel required control={<Checkbox />} label="Required" />
           <FormControlLabel disabled control={<Checkbox />} label="Disabled" />
         </FormGroup>
-      </div>
+      </div> */}
     </div>
   );
 }

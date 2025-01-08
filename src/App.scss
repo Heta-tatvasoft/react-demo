@@ -13,4 +13,15 @@
   width: 100%;
 }
 
+section {
+  padding: 50px 0;
+}
+
+.snackbar-component-wrapper {
+  .item-wrapper {
+    + .item-wrapper {
+      margin-top: 1rem;
+    }
+  }
+}
 /* input design start end*/
