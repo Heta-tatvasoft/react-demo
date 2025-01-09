@@ -37,12 +37,13 @@
     // Position options
     const [openPosition, setOpenPosition] = React.useState({
       display: false,
-      vertical: 'top',
+      vertical: 'top', // default value for snackbar position
       horizontal: 'center',
     });
     const { vertical, horizontal, display } = openPosition;
 
     const handlePositionClick = (newOpenPosition) => {
+      console.log(newOpenPosition);
       setOpenPosition({ ...newOpenPosition, display: true });
     };
 
@@ -168,17 +169,17 @@
                       onClose={handleAlertClose}
                       message="Hi! I'm Basic Snackbar message.."
                       action={actionAlert}
-                      TransitionComponent={Fade}> 
+                      TransitionComponent={Fade}
+                    > 
                         <Alert
                             onClose={handleAlertClose}
-                            severity="success"
+                            severity="success" // info, warning and error
                             variant="filled"
                             sx={{ width: '100%' }}
                           >
                             This is a success Alert inside a Snackbar!
                           </Alert>
-                      </Snackbar>
-                      {/* error, info, warning */}
+                      </Snackbar>                      
                   </div>
                 </div>
                 </CardContent>
