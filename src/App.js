@@ -1,6 +1,7 @@
 import { Typography, Button, FormControl, Input, InputLabel, FormGroup, FormControlLabel, Checkbox } from '@mui/material';
 import './App.scss';
 import SnackBarComponent from './components/SnackBarComponent';
+import AutoCompleteComponent from './components/AutoCompleteComponent';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -10,6 +11,9 @@ function App() {
       <Router>
         <Routes>
           <Route path='/snackbar' element={<SnackBarComponent />} />
+        </Routes>
+        <Routes>
+          <Route path='/autocomplete' element={<AutoCompleteComponent />} />
         </Routes>
       </Router>
       {/* <div className="container">
