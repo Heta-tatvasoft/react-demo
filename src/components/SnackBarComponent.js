@@ -34,6 +34,21 @@
     );
 
 
+    // Basic snamckbar with inline action
+    const [openInline, setOpenInline] = React.useState(false);
+
+    const handleInlineClick = () => {
+      setOpenInline(true);
+    };
+
+    const handleInlineClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+
+      setOpenInline(false);
+    };
+
     // Position options
     const [openPosition, setOpenPosition] = React.useState({
       display: false,
@@ -115,6 +130,24 @@
                       message="Hi! I'm Basic Snackbar message.."
                       action={action}
                       TransitionComponent={Fade}
+                    />
+                    {/* // import Grow from "@mui/material/Grow";
+                    // TransitionComponent={Grow} */}
+                  </div>
+                  <div className="item-wrapper">
+                    <h3>Basic Snackbar with inline Action</h3>
+                    <Button variant="outlined" onClick={handleInlineClick}>Open Snackbar</Button>
+                    <Snackbar
+                      open={openInline}
+                      autoHideDuration={6000}
+                      onClose={handleClose}
+                      message="Hi! I'm Snackbar with inline action.."
+                      TransitionComponent={Fade}
+                      action={
+                        <Button variant="outlined" color="secondary" size="small" onClick={handleInlineClose}>
+                          <img src={CloseImage} alt="close" />
+                        </Button>
+                      } 
                     />
                     {/* // import Grow from "@mui/material/Grow";
                     // TransitionComponent={Grow} */}
