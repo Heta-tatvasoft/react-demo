@@ -8,6 +8,7 @@
 
   import CloseImage from '../assets/images/close-icon-gray.svg';
   import Fade from "@mui/material/Fade";
+  import Alert from '@mui/material/Alert';
 
   const SnackBarComponent = () => {
 
@@ -75,6 +76,24 @@
       </Button>
     );
 
+    // Snackbar with Alerts Example
+    const [openAlert, setOpenAlert] = React.useState(false);
+
+    const handleAlertClick = () => {
+      setOpenAlert(true);
+    }
+    const handleAlertClose = (event, reason) => {
+      if (reason === 'clickaway') {
+        return;
+      }
+
+      setOpenAlert(false);
+    }
+    const actionAlert = (
+      <Button variant="outlined" color="secondary" size="small" onClick={handleCustomClose}>
+        <img src={CloseImage} alt="close" />
+      </Button>
+    );
 
 
     return (
@@ -139,6 +158,27 @@
                         }}
                       />
                     </Snackbar>
+                  </div>
+                  <div className="item-wrapper">
+                    <h3>Snackbar with Alert</h3>
+                    <Button variant="outlined" onClick={handleAlertClick}>Open Snackbar</Button>
+                    <Snackbar
+                      open={openAlert}
+                      autoHideDuration={6000}
+                      onClose={handleAlertClose}
+                      message="Hi! I'm Basic Snackbar message.."
+                      action={actionAlert}
+                      TransitionComponent={Fade}> 
+                        <Alert
+                            onClose={handleAlertClose}
+                            severity="success"
+                            variant="filled"
+                            sx={{ width: '100%' }}
+                          >
+                            This is a success Alert inside a Snackbar!
+                          </Alert>
+                      </Snackbar>
+                      {/* error, info, warning */}
                   </div>
                 </div>
                 </CardContent>
