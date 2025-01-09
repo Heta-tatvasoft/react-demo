@@ -2,6 +2,7 @@ import { Typography, Button, FormControl, Input, InputLabel, FormGroup, FormCont
 import './App.scss';
 import SnackBarComponent from './components/SnackBarComponent';
 import AutoCompleteComponent from './components/AutoCompleteComponent';
+import SliderComponent from './components/SliderComponent';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -14,6 +15,9 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/autocomplete' element={<AutoCompleteComponent />} />
+        </Routes>
+        <Routes>
+          <Route path='/slider' element={<SliderComponent/>} />
         </Routes>
       </Router>
       {/* <div className="container">
