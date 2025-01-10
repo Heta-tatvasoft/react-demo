@@ -6,7 +6,6 @@ import {
   TextField,
   Typography,
   Container,
-  Box,
   Checkbox 
 } from "@mui/material";
 import Grid from '@mui/material/Grid2';
@@ -58,7 +57,7 @@ const AutoCompleteComponent = () => {
                 renderOption={(props, option, { selected }) => {
                   const { key, ...optionProps } = props;
                   return (
-                    <li key={key} {...optionProps}>
+                    <li Key={key} {...optionProps}>
                       <Checkbox
                         icon={icon}
                         checkedIcon={checkedIcon}

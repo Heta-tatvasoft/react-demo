@@ -38,10 +38,6 @@ const SliderComponent = () => {
       },
     ];
 
-    function valuetext(value) {
-      return `${value}`;
-    }
-
 
     // range slider
     const [rangeEx1, setRangeEx1] = React.useState([20, 37]);
@@ -70,11 +66,10 @@ const SliderComponent = () => {
                         </div>
                         <div className="item-wrapper half-width">
                             <h3>Discrete sliders</h3>
-                            <Slider 
+                            <Slider                               
                                 aria-label="Descreate Slider" 
                                 defaultValue={50}
-                                valueLabelDisplay="auto"
-                                shiftStep={50}
+                                valueLabelDisplay="auto"                                
                                 step={10}
                                 min={0}
                                 max={100}
@@ -86,12 +81,11 @@ const SliderComponent = () => {
                             <h3>Custom marks sliders</h3>
                             <Slider 
                                aria-label="Custom marks"
-                               defaultValue={12}
-                               getAriaValueText={valuetext}
+                               defaultValue={12}                               
                                step={null}
                                valueLabelDisplay="auto"
                                marks={marks}
-                               color="secondary"
+                               color="secondary"                               
                             />
                         </div>
                         <div className="item-wrapper half-width">
@@ -113,7 +107,7 @@ const SliderComponent = () => {
                                   getAriaLabel={() => 'range example vertical'}
                                   orientation="vertical"
                                   defaultValue={[40, 77]}
-                                  valueLabelDisplay="on"
+                                  valueLabelDisplay="on"                                  
                                 />
                               </Box>
                         </div>

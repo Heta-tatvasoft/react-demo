@@ -155,7 +155,7 @@
                   </div>
                   <div className="item-wrapper">
                     <h3>Basic Snackbar with position options</h3>
-                    <Button variant="outlined" onClick={() => handlePositionClick({ vertical: 'bottom', horizontal: 'center' })}>Open Snackbar</Button>
+                    <Button variant="outlined" onClick={() => handlePositionClick({ vertical: 'top', horizontal: 'right' })}>Open Snackbar</Button>
                     <Snackbar
                       anchorOrigin= {{ vertical, horizontal }}
                       open={display}
