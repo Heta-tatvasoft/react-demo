@@ -38,10 +38,6 @@ const SliderComponent = () => {
       },
     ];
 
-    function valuetext(value) {
-      return `${value}`;
-    }
-
 
     // range slider
     const [rangeEx1, setRangeEx1] = React.useState([20, 37]);
@@ -87,7 +83,6 @@ const SliderComponent = () => {
                             <Slider 
                                aria-label="Custom marks"
                                defaultValue={12}
-                               getAriaValueText={valuetext}
                                step={null}
                                valueLabelDisplay="auto"
                                marks={marks}

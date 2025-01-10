@@ -63,6 +63,9 @@ const theme = createTheme({
           backgroundColor: '#f4f4f4', // Set body background color
           fontFamily: '"Roboto", sans-serif', // Set global font
         },
+        ul: {
+          listStyleType: 'none'
+        }
       },
     },
   },

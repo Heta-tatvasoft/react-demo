@@ -3,6 +3,8 @@ import './App.scss';
 import SnackBarComponent from './components/SnackBarComponent';
 import AutoCompleteComponent from './components/AutoCompleteComponent';
 import SliderComponent from './components/SliderComponent';
+import DatepickerComponent from './components/DatepickerComponent';
+import DateRangePickerComponent from './components/DateRangePickerComponent';
 
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
@@ -18,6 +20,12 @@ function App() {
         </Routes>
         <Routes>
           <Route path='/slider' element={<SliderComponent/>} />
+        </Routes>
+        <Routes>
+          <Route path='/datepicker' element={<DatepickerComponent/>} />
+        </Routes>
+        <Routes>
+          <Route path='/date-range-picker' element={<DateRangePickerComponent/>} />
         </Routes>
       </Router>
       {/* <div className="container">

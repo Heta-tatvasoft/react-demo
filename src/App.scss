@@ -36,6 +36,15 @@ section {
         }
       }
     }
+    .datepicker-outer {
+      max-width: 460px;
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+      &.full-width {
+        max-width: 100%;
+      }
+    }
   }
 }
 /* input design start end*/
