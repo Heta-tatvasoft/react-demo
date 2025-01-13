@@ -1,19 +1,20 @@
 import React from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
-import { DemoContainer } from '@mui/x-date-pickers/internals/demo';
+import { DemoContainer, DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { AdapterDayjs } from '@mui/x-date-pickers/AdapterDayjs';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
-import { DemoItem } from '@mui/x-date-pickers/internals/demo';
 import { DatePicker } from '@mui/x-date-pickers/DatePicker';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Box from '@mui/material/Box';
 import Alert from '@mui/material/Alert';
 import dayjs from "dayjs";
+import TextField from "@mui/material/TextField";
 
 const DatepickerComponent = () => {
 
   // to open on input
+  const [value, setValue] = React.useState(null);
   const [open, setOpen] = React.useState(false);
 
   // for clearable datepicker 
@@ -53,10 +54,22 @@ const DatepickerComponent = () => {
                               }}
                             >
                               <DatePicker label="Basic date picker" 
-                              open={open}
-                              onOpen={() => setOpen(true)}
-                              onClose={() => setOpen(false)}
-                              onFocus={() => setOpen(true)} />
+                               open={open}
+                               onOpen={() => setOpen(true)}
+                               onClose={() => setOpen(false)}
+                               value={value}
+                                onChange={(newValue) => {
+                                  setValue(newValue);
+                                }}
+                                renderInput={(params) => {
+                                  return (
+                                    <TextField
+                                      {...params}
+                                      onClick={(e) => setOpen(true)}
+                                    />
+                                  );
+                                }}
+                               />
                               <DatePicker label="disabled" disabled />
                               <DatePicker label="readOnly" readOnly value={dayjs("2025-06-01")} />
 
@@ -70,7 +83,7 @@ const DatepickerComponent = () => {
                       <p>By default, the day and year views are enabled. Use the <strong>views</strong> prop to change this behavior:</p>
                       <div className="datepicker-outer">
                         <LocalizationProvider dateAdapter={AdapterDayjs}>
-                          <DemoContainer components={['DatePicker', 'DatePicker', 'DatePicker']}>
+                          <DemoContainer components={['DatePicker', 'DatePicker', 'DatePicker', 'DatePicker', 'DatePicker']}>
                             <DatePicker
                               label={'"year", "month" and "day" and Helper text'}
                               views={['year', 'month', 'day']}
