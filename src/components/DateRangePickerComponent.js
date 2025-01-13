@@ -32,7 +32,7 @@ const DateRangePickerComponent = () => {
                     </CardContent>
                 </Card>
               </div>
-            </section>
+          </section>
       </div>
     );
   };

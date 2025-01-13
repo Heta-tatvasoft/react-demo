@@ -9,6 +9,7 @@ import DateRangePickerComponent from './components/DateRangePickerComponent';
 import FileUploadComponent from './components/FileUploadComponent';
 import DragnDropFileComponent from './components/DragnDropFileComponent';
 import SelectComponent from './components/SelectComponent';
+import ReactSelectComponent from './components/ReactSelectComponent';
 
 function App() {
   return (
@@ -24,6 +25,7 @@ function App() {
           <Route path='/datepicker' element={<DatepickerComponent/>} />
           <Route path='/date-range-picker' element={<DateRangePickerComponent/>} />
           <Route path='/select' element={<SelectComponent/>} />
+          <Route path='/react-select' element={<ReactSelectComponent/>} />
         </Routes>
       </Router>
     </div>
