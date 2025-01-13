@@ -20,12 +20,14 @@ const DateRangePickerComponent = () => {
                   <CardContent className="daterange-outer">
                     <h2>Date range picker Component</h2>
                     <div className="description">
+                    <div className="daterange-outer">
                         <Button variant="outlined" onClick={toggle}>Open Daterange picker</Button>
                         <DateRangePicker
                             open={open}
                             toggle={toggle}
                             onChange={(range) => setDateRange(range)}
                         />
+                    </div>
                     </div>
                     </CardContent>
                 </Card>
