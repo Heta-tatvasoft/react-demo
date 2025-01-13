@@ -10,6 +10,10 @@ import FileUploadComponent from './components/FileUploadComponent';
 import DragnDropFileComponent from './components/DragnDropFileComponent';
 import SelectComponent from './components/SelectComponent';
 import ReactSelectComponent from './components/ReactSelectComponent';
+import IconsDropdown from './components/IconsDropdown';
+import ColorDropdown from './components/ColorDropdown';
+import MaterialIconDropdown from './components/MaterialIconDropdown';
+import MultiSelectWithChip from './components/MultiSelectWithChip';
 
 function App() {
   return (
@@ -26,6 +30,10 @@ function App() {
           <Route path='/date-range-picker' element={<DateRangePickerComponent/>} />
           <Route path='/select' element={<SelectComponent/>} />
           <Route path='/react-select' element={<ReactSelectComponent/>} />
+          <Route path='/icons-dropdown' element={<IconsDropdown/>} />
+          <Route path='/color-dropdown' element={<ColorDropdown />} />
+          <Route path='/material-icon-dropdown' element={<MaterialIconDropdown />} />
+          <Route path='/multi-select' element={<MultiSelectWithChip />} />
         </Routes>
       </Router>
     </div>
