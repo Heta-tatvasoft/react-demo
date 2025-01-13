@@ -17,7 +17,13 @@ section {
   padding: 50px 0;
 }
 
+
 .snackbar-component-wrapper {
+  .daterange-outer{
+    .MuiListItem-root{
+      cursor: pointer;
+    }
+  } 
   .item-wrapper {
     + .item-wrapper {
       margin-top: 1rem;

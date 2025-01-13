@@ -8,6 +8,7 @@ import DatepickerComponent from './components/DatepickerComponent';
 import DateRangePickerComponent from './components/DateRangePickerComponent';
 import FileUploadComponent from './components/FileUploadComponent';
 import DragnDropFileComponent from './components/DragnDropFileComponent';
+import SelectComponent from './components/SelectComponent';
 
 function App() {
   return (
@@ -22,6 +23,7 @@ function App() {
           <Route path='/drag-n-drop' element={<DragnDropFileComponent />} />
           <Route path='/datepicker' element={<DatepickerComponent/>} />
           <Route path='/date-range-picker' element={<DateRangePickerComponent/>} />
+          <Route path='/select' element={<SelectComponent/>} />
         </Routes>
       </Router>
     </div>

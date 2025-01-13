@@ -1,4 +1,4 @@
-import React, {useState, useCallback} from "react";
+import React from "react";
 import {useDropzone} from 'react-dropzone';
 import { Box, Typography, Container } from "@mui/material";
 
@@ -17,12 +17,11 @@ const styles = {
         backgroundColor: '#fff',
     },
     text: {
-        color: '#000'
+        color: '#ff0000'
     }
 };
 
-const DragnDropFileComponent = () => {        
-    const files = [];
+const DragnDropFileComponent = () => {            
     const {acceptedFiles, getRootProps, getInputProps} = useDropzone();
   
     return(
@@ -37,14 +36,15 @@ const DragnDropFileComponent = () => {
                 <aside>
                 <Typography variant="h3" sx={{fontSize: "14px", marginBottom: '10px', marginTop: '10px'}}>Selected Files are:</Typography>                
                     <ul>
-                        {files ? 
+                        {acceptedFiles ? 
                             acceptedFiles.map(file => (
                                 <li key={file.name}>
                                   {file.name}
                                 </li>
                               ))
                         : <></>
-                        }</ul>
+                        }
+                        </ul>
                 </aside>
             </Box>
         </Container>

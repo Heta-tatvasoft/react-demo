@@ -6,9 +6,7 @@ import Grid from '@mui/material/Grid2';
 import Delete from "@mui/icons-material/Delete";
 import { useState } from "react";
 
-const VisuallyHiddenInput = styled('input')({
-    clip: 'rect(0 0 0 0)',
-    clipPath: 'inset(50%)',
+const VisuallyHiddenInput = styled('input')({  
     height: 1,
     overflow: 'hidden',
     position: 'absolute',
@@ -20,9 +18,9 @@ const VisuallyHiddenInput = styled('input')({
 const FileUploadComponent = () => {
     // single file upload
     const [fileName, setFileName] = useState('');
-    const handleChange = (event) => {
-        console.log(event.target.files);
+    const handleChange = (event) => {        
         const files = event.target.files;  
+        console.log(files);
         const fileName = files[0].name;
         setFileName(fileName);
     }
@@ -44,7 +42,6 @@ const FileUploadComponent = () => {
         oldArray.splice(index, 1);
         setMultiFile(updatedFiles => [...updatedFiles, ...oldArray]);
     }
-    // const removeFile = (index) => setMultiFile(multiFile.filter((_, i) => i !== index));
 
     return(
         <Container sx={{backgroundColor: "#fff", padding: '40px !important'}}>            
@@ -53,8 +50,7 @@ const FileUploadComponent = () => {
                 <Grid size={6}>
                     <Typography variant="h3" sx={{fontSize: "16px", marginBottom: '16px'}}>Single File Upload</Typography>
                     <Button
-                        component="label"
-                        role={undefined}
+                        component="label"                        
                         variant="contained"
                         tabIndex={-1}
                         startIcon={<CloudUploadIcon />}
@@ -66,15 +62,14 @@ const FileUploadComponent = () => {
                         />
                     </Button>
                     { fileName ? 
-                        <p sx={{marginTop: '20px'}}>{fileName}</p> :
+                        <p className="text">{fileName}</p> :
                         <p>No file selected</p>
                     }
                 </Grid>
                 <Grid size={6}>
                     <Typography variant="h3" sx={{fontSize: "16px", marginBottom: '16px'}}>Multi Files Upload</Typography>
                     <Button
-                        component="label"
-                        role={undefined}
+                        component="label"                        
                         variant="contained"
                         tabIndex={-1}
                         startIcon={<CloudUploadIcon />}
@@ -82,7 +77,7 @@ const FileUploadComponent = () => {
                         Upload files
                         <VisuallyHiddenInput
                             type="file"                            
-                            onChange={(event) => handleFilChange(event)}
+                            onChange={handleFilChange}
                             multiple
                         />
                     </Button>

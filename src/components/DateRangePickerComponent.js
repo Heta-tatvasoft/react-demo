@@ -17,7 +17,7 @@ const DateRangePickerComponent = () => {
           <section>
               <div className="container">
                 <Card variant="outlined" className="snackbar-component-wrapper">
-                  <CardContent>
+                  <CardContent className="daterange-outer">
                     <h2>Date range picker Component</h2>
                     <div className="description">
                         <Button variant="outlined" onClick={toggle}>Open Daterange picker</Button>
