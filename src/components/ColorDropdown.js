@@ -53,7 +53,7 @@ const Option = (props) => {
     </div>
   );
 };
-// Custom MultiValue component to show selected option with image in the chip
+// Custom MultiValue component to show selected option with color tile in the chip
 const MultiValue = (props) => {
     return (
       <components.MultiValue {...props}>

@@ -4,22 +4,8 @@ import CardContent from '@mui/material/CardContent';
 // for react-select
 import Select, { components } from "react-select";
 
-const Option = (props) => {
-  return (
-    <div>
-      <components.Option {...props}>
-        <input
-          type="checkbox"
-          checked={props.isSelected}
-          onChange={() => null}
-        />{" "}
-        <label>{props.label}</label>
-      </components.Option>
-    </div>
-  );
-};
 
-
+// single select with search
 const ReactSelectComponent = () => {
   const options = [
     { value: "chocolate", label: "Chocolate" },
@@ -37,12 +23,63 @@ const ReactSelectComponent = () => {
     setSelectedOption(option);
   };
 
-  // multi select checkbox with custom render option
-  const [selectedMultiOption, setSelectedMultiOption] = useState(null);
 
-  const handleMultiChange = (option) => {
-    setSelectedMultiOption(option);
-  };
+
+// multi select checkbox with custom render option
+const Option = (props) => {
+  return (
+    <div>
+      <components.Option {...props}>
+        <input
+          type="checkbox"
+          checked={props.isSelected}
+          onChange={() => null}
+        />{" "}
+        <label>{props.label}</label>
+      </components.Option>
+    </div>
+  );
+};
+
+// Custom Menu with "Select All" checkbox
+const CustomMenu = ({ options, setAllSelected, isAllSelected, ...props }) => {
+  return (
+    <components.Menu {...props}>
+      <div
+        style={{ padding: "5px", borderBottom: "1px solid #ddd" }}
+        onClick={setAllSelected}
+      >
+        <input
+          type="checkbox"
+          checked={isAllSelected}
+          // onChange={setAllSelected}
+          readOnly
+        />
+        <label>Select All</label>
+      </div>
+      {props.children}
+    </components.Menu>
+  );
+};
+
+const [selectedOptions, setSelectedOptions] = useState([]);
+
+// Check if all options are selected
+const isAllSelected = selectedOptions.length === options.length;
+
+// Toggle select/deselect all
+const setAllSelected = () => {
+  if (isAllSelected) {
+    setSelectedOptions([]);
+  } else {
+    setSelectedOptions(options);
+  }
+};
+
+
+const handleMultiChange = (option) => {
+  setSelectedOptions(option || []);
+};
 
 
   return (
@@ -77,7 +114,7 @@ const ReactSelectComponent = () => {
                   <div className="dropdown-wrapper">
                     <div>
                       <Select
-                        value={selectedMultiOption}
+                        value={selectedOptions}
                         onChange={handleMultiChange}
                         options={options}
                         isSearchable
@@ -85,6 +122,14 @@ const ReactSelectComponent = () => {
                         isMulti
                         components={{
                           Option,
+                          Menu: (props) => (
+                            <CustomMenu
+                              {...props}
+                              options={options}
+                              setAllSelected={setAllSelected}
+                              isAllSelected={isAllSelected}
+                            />
+                          ),
                         }}
                         hideSelectedOptions={false}
                       />

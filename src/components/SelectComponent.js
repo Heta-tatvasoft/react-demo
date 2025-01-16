@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useState } from "react";
 import Card from '@mui/material/Card';
 import CardContent from '@mui/material/CardContent';
 // for MUI select
@@ -7,12 +7,11 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import FormHelperText from '@mui/material/FormHelperText';
 import Box from '@mui/material/Box';
-// import OutlinedInput from '@mui/material/OutlinedInput';
+import OutlinedInput from '@mui/material/OutlinedInput';
 import Chip from '@mui/material/Chip';
 import Checkbox from '@mui/material/Checkbox';
 import ListItemText from '@mui/material/ListItemText';
 import Select from '@mui/material/Select';
-import { ClickAwayListener } from "@mui/material";
 
 const ITEM_HEIGHT = 48;
 const ITEM_PADDING_TOP = 8;
@@ -53,9 +52,6 @@ const SelectComponent = () => {
 
   // multi select without search
   const [personName, setPersonName] = useState([]);
-  const [open, setOpen] = useState(false);
-  const selectRef = useRef(null);
-
 
 
   const handleMultipleChange = (event) => {
@@ -66,19 +62,16 @@ const SelectComponent = () => {
       // On autofill we get a stringified value.
       typeof value === 'string' ? value.split(',') : value,
     );
-    console.log('handle change:'+ personName);
   };
 
   const handleChipDelete = (chipToDelete) => {
-    window.alert('chip delete');
     setPersonName((prevSelected) =>
       prevSelected.filter((name) => name !== chipToDelete)
     );
-    console.log('handle delete:'+ personName);
   };
 
-  const handleClickAway = () => {
-    setOpen(false);
+  const handleChipMouseDown = (event) => {
+    event.stopPropagation(); // Prevent click from opening dropdown
   };
 
   return (
@@ -117,43 +110,38 @@ const SelectComponent = () => {
                   <div className="dropdown-wrapper">
                     <FormControl fullWidth>
                       <InputLabel id="demo-multiple-chip-checkbox-label">Multiselect without search</InputLabel>
-                      <ClickAwayListener onClickAway={handleClickAway}>
-                          <Select
-                            fullWidth
-                            labelId="demo-multiple-chip-checkbox-label"
-                            id="demo-multiple-chip-checkbox"
-                            multiple
-                            value={personName}
-                            onChange={handleMultipleChange}
-                            // input={<OutlinedInput id="select-multiple-chip-checkbox" label="Multiselect without search" />}
-                            renderValue={(selected) => (
-                              <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
-                                {selected.map((value) => (
-                                  <Chip
-                                    key={value}
-                                    label={value}
-                                    onDelete={() => {
-                                      handleChipDelete(value);
-                                    }}
-                                    sx={{ cursor: 'pointer' }}
-                                  />
-                                ))}
-                              </Box>
-                            )}
-                            open={open}
-                            onOpen={() => setOpen(true)}
-                            onClose={() => setOpen(false)}
-                            MenuProps={MenuProps}
-                            ref={selectRef}
-                            >
-                            {names.map((name) => (
-                              <MenuItem key={name} value={name}>
-                              <Checkbox checked={personName.includes(name)} />
-                              <ListItemText primary={name} />
-                              </MenuItem>
-                            ))}
-                          </Select>
-                      </ClickAwayListener>
+                        <Select
+                          fullWidth
+                          labelId="demo-multiple-chip-checkbox-label"
+                          id="demo-multiple-chip-checkbox"
+                          multiple
+                          value={personName}
+                          onChange={handleMultipleChange}
+                          input={<OutlinedInput id="select-multiple-chip-checkbox" label="Multiselect without search" />}
+                          renderValue={(selected) => (
+                            <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 0.5 }}>
+                              {selected.map((value) => (
+                                <Chip
+                                  key={value}
+                                  label={value}
+                                  onDelete={() => {
+                                    handleChipDelete(value);
+                                  }}
+                                  onMouseDown={handleChipMouseDown}
+                                  sx={{ cursor: 'pointer' }}
+                                />
+                              ))}
+                            </Box>
+                          )}
+                          MenuProps={MenuProps}
+                          >
+                          {names.map((name) => (
+                            <MenuItem key={name} value={name}>
+                            <Checkbox checked={personName.includes(name)} />
+                            <ListItemText primary={name} />
+                            </MenuItem>
+                          ))}
+                        </Select>
                     </FormControl>
                   </div>
                 </div>
